@@ -34,13 +34,17 @@ if (localStorage.products != null) {
 
 add.onclick = function create() {
     // Check if any of the input fields are empty
-    if (!productName.value || !price.value ) {
+    if (!productName.value || !price.value || !productCategory.value || parseInt(productCount.value) > 100 ) {
         // Create error message alert
         let errorMessage = document.createElement('div');
         errorMessage.classList.add('alert', 'alert-danger', 'mt-3', 'd-flex', 'justify-content-between', 'align-items-center');
         
         // Error message text
-        errorMessage.innerHTML = 'Please Enter Product Data';
+        if (!productName.value || !price.value || !productCategory.value) {
+            errorMessage.innerHTML = 'Please Enter All Product Data';
+        } else if ( parseInt(productCount.value) > 100 ) {
+            errorMessage.innerHTML = 'Please Enter a Number Between 1 and 100 for Product Count';
+        }
 
         // Get the parent container of the button
         let parentContainer = add.parentNode;
@@ -51,12 +55,14 @@ add.onclick = function create() {
         // Add event listeners to input fields to hide the error message when typing
         productName.addEventListener('input', hideErrorMessage);
         price.addEventListener('input', hideErrorMessage);
+        productCategory.addEventListener('input', hideErrorMessage);
+        productCount.addEventListener('input', hideErrorMessage);
 
-        // Exit the function since inputs are empty
+        // Exit the function since inputs are empty or invalid
         return;
     }
 
-    // If inputs are not empty, continue with creating the product
+    // If inputs are not empty and count is valid, continue with creating the product
     let newProduct = {
         name: productName.value,
         price: price.value,
@@ -72,7 +78,7 @@ add.onclick = function create() {
     let count = parseInt(productCount.value);
 
     // Add the new product(s) to the dataProduct array based on the count
-    if (mood === 'create'){
+    if (mood === 'create') {
         if (count > 1) {
             for (let i = 0; i < count; i++) {
                 dataProduct.push(newProduct);
@@ -80,13 +86,12 @@ add.onclick = function create() {
         } else {
             dataProduct.push(newProduct);
         }
-    }else {
+    } else {
         dataProduct[tmp] = newProduct;
         mood = 'create';
-        add.innerHTML ='add product';
-        document.getElementById("count").style.display="block";
+        add.innerHTML = 'add product';
+        document.getElementById("count").style.display = "block";
     }
-    
 
     localStorage.setItem("products", JSON.stringify(dataProduct));
     clearData();
@@ -95,11 +100,13 @@ add.onclick = function create() {
 
 
 
+
 function hideErrorMessage() {
     let errorMessage = document.querySelector('.alert-danger');
     if (errorMessage) {
         errorMessage.remove();
     }
+    
 }
 
 

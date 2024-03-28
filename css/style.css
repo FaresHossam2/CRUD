@@ -20,8 +20,7 @@ a {
 }
 
 body {
-  background-color: rgb(28, 26, 26);
-  padding-bottom: 50px;
+  background-color:#212121;
 }
 
 .container {
@@ -72,7 +71,7 @@ body {
 
 /* end header */
 .containerr{
-  padding: 50px;
+  padding: 10px 50px;
 }
 @media(max-width:992px) {
   .containerr{
@@ -83,6 +82,9 @@ body {
   .containerr{
     padding: 10px;
   }
+}
+.content{
+  background-color: red;
 }
 table {
   font-size: 20px;
@@ -171,9 +173,12 @@ input {
   font-weight: 400;
   font-size: 22px;
 }
+#upd,#del{
+  font-size: 16px;
+}
 @media(max-width:992px) {
   #upd,#del{
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media(max-width:768px) {
