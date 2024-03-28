@@ -1,85 +1,108 @@
 /* Start Global Rules */
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
- body{
-    background-color: rgb(28, 26, 26);
-    padding-bottom: 50px;
- }
-  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(28, 26, 26);
+  padding-bottom: 50px;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 576px) {
   .container {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
+      max-width: 540px;
   }
-  
-  /* Small */
-  @media (min-width: 768px) {
-    .container {
-      width: 750px;
-    }
-  }
-  
-  /* Medium */
-  @media (min-width: 992px) {
-    .container {
-      width: 970px;
-    }
-  }
-  
-  /* Large */
-  @media (min-width: 1200px) {
-    .container {
-      width: 1170px;
-    }
-  }
-  
-  /* End Global Rules */
-  
-  /* start header */ 
+}
 
+/* Medium */
+@media (min-width: 768px) {
+  .container {
+      max-width: 720px;
+  }
+}
+
+/* Large */
+@media (min-width: 992px) {
+  .container {
+      max-width: 960px;
+  }
+}
+
+/* Extra large */
+@media (min-width: 1200px) {
+  .container {
+      max-width: 1140px;
+  }
+}
+
+/* End Global Rules */
+
+/* start header */
 .header h1 {
-    text-align: center;
-    padding-top: 50px;
-    text-transform: uppercase;
-    color: dodgerblue;
-    font-weight: bold;
+  text-align: center;
+  padding-top: 50px;
+  text-transform: uppercase;
+  color: dodgerblue;
+  font-weight: bold;
 }
-  /* end header */
 
-table{
-font-size: 20px;
-font-weight: 700;
-max-width: 100%;
-position: relative;
+/* end header */
+.containerr{
+  padding: 50px;
 }
-.btn  {
+@media(max-width:992px) {
+  .containerr{
+    padding: 0px;
+  }
+}
+@media(max-width:768px) {
+  .containerr{
+    padding: 10px;
+  }
+}
+table {
+  font-size: 20px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+}
+
+.btn {
   border-radius: 20px;
   transition: 0.5s;
   text-transform: uppercase;
   font-size: 20px;
 }
-.btn:hover{
+
+.btn:hover {
   letter-spacing: 2px;
 }
+
 #deleteAll {
   display: flex;
   align-items: center;
@@ -90,22 +113,29 @@ position: relative;
   margin-bottom: 0;
   margin-top: 20px;
 }
-label{
+
+label {
   text-transform: uppercase;
 }
-input{
-  width: 10%;
+
+input {
+  width: 100%;
+  padding: 10px; /* Adjust input padding for better appearance */
 }
-.form-control{
+
+.form-control {
   font-size: 20px;
   font-weight: 500;
   color: black;
 }
-.form-control::placeholder{
+
+.form-control::placeholder {
   font-size: 20px;
   font-weight: 400;
 }
+
 #total {
+  width: fit-content;
   background-color: red;
   padding: 4px 5px;
   display: flex;
@@ -113,46 +143,82 @@ input{
   align-items: center;
   text-align: center;
   font-size: 20px;
-font-weight: bold;
-border-radius: 10px;
+  font-weight: bold;
+  border-radius: 10px;
 }
-#total::before{
+
+@media(max-width:992px){
+  #total {
+    margin-left: 20px;
+  }
+}
+#total::before {
   content: "Total : ";
 }
-#search{
-font-weight: 500;
-font-size: 22px;
+
+.create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#search::placeholder{
-  font-weight: 300;
+
+#search {
+  font-weight: 500;
   font-size: 22px;
+}
+
+#search::placeholder {
+  font-weight: 400;
+  font-size: 22px;
+}
+@media(max-width:992px) {
+  #upd,#del{
+    font-size: 18px;
   }
-@media(max-width:768px){
-  .header h1{
+}
+@media(max-width:768px) {
+  #upd,#del{
+    font-size: 16px;
+  }
+}
+@media(max-width:992px){
+  th, td {
+    font-size: 16px; /* Decrease font size for table cells */
+  }
+  td{
+    font-size: 20px;
+  }
+}
+/* Add this media query for tablet devices */
+@media (max-width: 992px) {
+  .row {
+      flex-direction: column; /* Change the flex direction to column for stacking vertically */
+  }
+  .col {
+      width: 100%; /* Make each column take up the full width */
+      margin-bottom: 15px; /* Add some spacing between each input */
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
     font-size: 30px;
   }
-  #del,#upd{
-    font-size: 10px;
+  #deleteAll {
+    font-size: 20px;
+  }
+  #deleteAll {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   input{
-    width: 100%;
+    max-width: 100%;
+
+    padding: 25px; /* Adjust input padding for better appearance */
   }
-th{
-  font-size: 10px;
-}
-td{
-  font-size: 14px;
-}
-.row{
-  flex-direction: column;
-}
-.row input{
-  margin-bottom: 15px;
-}
-#total{
-  width: 200px;
-  margin-left: 18px;  
-}
-
-
+  
+  th, td {
+    font-size: 16px; /* Decrease font size for table cells */
+  }
 }
