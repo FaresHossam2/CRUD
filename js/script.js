@@ -224,5 +224,4 @@ function displayFilteredData(filteredProducts) {
     document.getElementById("tableBody").innerHTML = table;
 }
 
-// Event listener for search input changes
-document.getElementById("searchInput").addEventListener("input", filterProducts);
+document.getElementById("search").addEventListener("input", search);
