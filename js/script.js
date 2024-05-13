@@ -27,7 +27,7 @@ function getTotal() {
 // Retrieving or initializing product data from localStorage
 let dataProduct;
 if (localStorage.products != null) {
-     dataProduct = JSON.parse(localStorage.products);
+  dataProduct = JSON.parse(localStorage.products);
 } else {
     dataProduct = [];
 }
@@ -99,8 +99,6 @@ add.onclick = function create() {
 };
 
 
-
-
 function hideErrorMessage() {
     let errorMessage = document.querySelector('.alert-danger');
     if (errorMessage) {
@@ -108,7 +106,6 @@ function hideErrorMessage() {
     }
     
 }
-
 
 
 // Function to clear the form
@@ -200,8 +197,7 @@ function search() {
         return product.name.toLowerCase().includes(searchInput) || product.productCategory.toLowerCase().includes(searchInput);
     });
     displayFilteredData(filteredProducts);
-    
-    
+
 }
 
 // Function to display filtered product data
